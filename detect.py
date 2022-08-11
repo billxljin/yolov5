@@ -87,6 +87,11 @@ def run(
     save_dir = increment_path(Path(project) / name, exist_ok=exist_ok)  # increment run
     (save_dir / 'labels' if save_txt else save_dir).mkdir(parents=True, exist_ok=True)  # make dir
 
+
+    # (save_dir /source.split("lvluo images\\")[1].split("images")[0]).mkdir(parents=True, exist_ok=True)
+    (save_dir /source.split("lvluo images\\")[1].split("images")[0]/"NG").mkdir(parents=True, exist_ok=True)
+    (save_dir /source.split("lvluo images\\")[1].split("images")[0]/"OK").mkdir(parents=True, exist_ok=True)
+
     # Load model
     device = select_device(device)
     model = DetectMultiBackend(weights, device=device, dnn=dnn, data=data, fp16=half)
@@ -140,13 +145,14 @@ def run(
                 p, im0, frame = path, im0s.copy(), getattr(dataset, 'frame', 0)
 
             p = Path(p)  # to Path
-            save_path = str(save_dir / p.name)  # im.jpg
+            save_path = str(save_dir /source.split("lvluo images\\")[1].split("images")[0]/"OK"/ p.name.replace(".bmp",".jpg"))  # im.jpg
             txt_path = str(save_dir / 'labels' / p.stem) + ('' if dataset.mode == 'image' else f'_{frame}')  # im.txt
             s += '%gx%g ' % im.shape[2:]  # print string
             gn = torch.tensor(im0.shape)[[1, 0, 1, 0]]  # normalization gain whwh
             imc = im0.copy() if save_crop else im0  # for save_crop
             annotator = Annotator(im0, line_width=line_thickness, example=str(names))
             if len(det):
+                save_path = str(save_dir /source.split("lvluo images\\")[1].split("images")[0]/"NG"/ p.name.replace(".bmp",".jpg"))  # im.jpg
                 # Rescale boxes from img_size to im0 size
                 det[:, :4] = scale_coords(im.shape[2:], det[:, :4], im0.shape).round()
 
@@ -231,7 +237,7 @@ def parse_opt():
     parser.add_argument('--project', default=ROOT / 'runs/detect', help='save results to project/name')
     parser.add_argument('--name', default='exp', help='save results to project/name')
     parser.add_argument('--exist-ok', action='store_true', help='existing project/name ok, do not increment')
-    parser.add_argument('--line-thickness', default=3, type=int, help='bounding box thickness (pixels)')
+    parser.add_argument('--line-thickness', default=2, type=int, help='bounding box thickness (pixels)')
     parser.add_argument('--hide-labels', default=False, action='store_true', help='hide labels')
     parser.add_argument('--hide-conf', default=False, action='store_true', help='hide confidences')
     parser.add_argument('--half', action='store_true', help='use FP16 half-precision inference')
@@ -250,3 +256,5 @@ def main(opt):
 if __name__ == "__main__":
     opt = parse_opt()
     main(opt)
+
+#   python D:\Deeplearning\YOLO5\yolov5\detect.py --weights "runs\train\train-2  has test dataset\weights\best.pt" --source "X:\Lvran\05-30 500W VS 1200W rgb\1200w\Yolov5\train\D1\test\images" --img 1408
