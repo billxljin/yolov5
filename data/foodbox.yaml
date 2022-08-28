@@ -16,9 +16,9 @@ train: # train images (relative to 'path')
   - AFC-20\train dataset 
   - AFC-30\train dataset
 
-  - 696492\train dataset
-  - 696492\OK-train
-  - 696492\underkill
+  - 696392\train dataset
+  - 696392\OK-train
+  - 696392\underkill
 
   - sige\train dataset
   - sige\OK-train
@@ -26,20 +26,28 @@ train: # train images (relative to 'path')
   - sige\underkill
 
   - 4-overkill\train
+  - 4-overkill2\train
+
   - 5-dummy\train
+  - 6-underkill\train
+  - 7-margin\train
 val: # val images (relative to 'path')
   - 69821\test dataset\val
   - 69896\test dataset\val
 
-  - 696492\underkill
-  - 696492\test dataset\val
+  - 696392\underkill
+  - 696392\test dataset\val
 
   - sige\overkill
   - sige\underkill
   - sige\test dataset\val
 
   - 4-overkill\val
+  - 4-overkill2\val
+  
   - 5-dummy\val
+  - 6-underkill\train
+  - 7-margin\val
 
 # Classes
 nc: 14 # number of classes
