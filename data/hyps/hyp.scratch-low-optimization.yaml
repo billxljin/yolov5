@@ -1,0 +1,67 @@
+# YOLOv5 🚀 by Ultralytics, GPL-3.0 license
+# Hyperparameters for low-augmentation COCO training from scratch
+# python train.py --batch 64 --cfg yolov5n6.yaml --weights '' --data coco.yaml --img 640 --epochs 300 --linear
+# See tutorials for hyperparameter evolution https://github.com/ultralytics/yolov5#tutorials
+
+lr0: 0.001  # initial learning rate (SGD=1E-2, Adam=1E-3)
+lrf: 0.1  # final OneCycleLR learning rate (lr0 * lrf)
+momentum: 0.937  # SGD momentum/Adam beta1
+weight_decay: 0.0005  # optimizer weight decay 5e-4
+warmup_epochs: 3.0  # warmup epochs (fractions ok)
+warmup_momentum: 0.8  # warmup initial momentum
+warmup_bias_lr: 0.1  # warmup initial bias lr
+box: 0.05  # box loss gain
+cls: 0.5  # cls loss gain
+cls_pw: 1.0  # cls BCELoss positive_weight
+obj: 1.0  # obj loss gain (scale with pixels)
+obj_pw: 1.0  # obj BCELoss positive_weight
+iou_t: 0.20  # IoU training threshold
+anchor_t: 4.0  # anchor-multiple threshold
+# anchors: 3  # anchors per output layer (0 to ignore)
+fl_gamma: 0.0  # focal loss gamma (efficientDet default gamma=1.5)
+hsv_h: 0.015  # image HSV-Hue augmentation (fraction)
+hsv_s: 0.7  # image HSV-Saturation augmentation (fraction)
+hsv_v: 0.4  # image HSV-Value augmentation (fraction)
+degrees: 3.0  # image rotation (+/- deg)
+translate: 0.1  # image translation (+/- fraction)
+scale: 0.3  # image scale (+/- gain)
+shear: 0.0  # image shear (+/- deg)
+perspective: 0.0  # image perspective (+/- fraction), range 0-0.001
+flipud: 0.5  # image flip up-down (probability)
+fliplr: 0.5  # image flip left-right (probability)
+mosaic: 1.0  # image mosaic (probability)
+mixup: 0.0  # image mixup (probability)
+copy_paste: 0.0  # segment copy-paste (probability)
+
+
+# # Hyperparameters for VOC finetuning  
+# # ython train.py --batch 64 --weights yolov5m.pt --data voc.yaml --img 512 --epochs 50  
+# lr0: 0.0032  #学习率  
+# lrf: 0.12    # 余弦退火超参数  
+# momentum: 0.843  # 学习率动量  
+# weight_decay: 0.00036  # 权重衰减系数  
+# warmup_epochs: 2.0  #预热学习epoch  
+# warmup_momentum: 0.5 #预热学习率动量  
+# warmup_bias_lr: 0.05 #预热学习率  
+# box: 0.0296  # giou损失的系数  
+# cls: 0.243  # 分类损失的系数  
+# cls_pw: 0.631 #分类BCELoss中正样本的权重  
+# obj: 0.301  # 有无物体损失的系数  
+# obj_pw: 0.911  # 有无物体BCELoss中正样本的权重  
+# iou_t: 0.2    # 标签与anchors的iou阈值iou training threshold  
+# anchor_t: 2.91  # 标签的长h宽w/anchor的长h_a宽w_a阈值, 即h/h_a, w/w_a都要在(1/2.91, 2.91)之间anchor-multiple threshold  
+# # anchors: 3.63  
+# # 下面是一些数据增强的系数, 包括颜色空间和图片空间  
+# fl_gamma: 0.0  
+# hsv_h: 0.0138  # 色调  
+# hsv_s: 0.664   # 饱和度  
+# hsv_v: 0.464   # 明度  
+# degrees: 0.373 #旋转角度  
+# translate: 0.245  # 水平和垂直平移  
+# scale: 0.898   # 缩放  
+# shear: 0.602  # 剪切  
+# perspective: 0.0  # 透视变换参数  
+# flipud: 0.00856  # 上下翻转  
+# fliplr: 0.5   # 左右翻转  
+# mosaic: 1.0   #进行mosaic的概率  
+# mixup: 0.243  #进行mixup的概率 

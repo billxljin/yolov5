@@ -4,6 +4,6 @@ cd D:\Deeplearning\YOLO5\yolov5
 
 python train.py --img 1600 --batch 4 --epochs 350 --data foodbox.yaml --weights weights\yolov5l.pt --workers 8 --cfg yolov5l.yaml --single-cls False
 
-python detect.py --weights "D:\Deeplearning\YOLO5\yolov5\runs\train\1-exp8-new label -0730\weights\best.pt" --source "X:\Lvran\2-label dataset\lvluo images\sige\test dataset\NG" --img 1600 --name foodbox  --exist-ok
+python detect.py --weights "D:\Deeplearning\YOLO5\yolov5\weights\best.pt" --source "X:\Lvran\2-label dataset\lvluo images\sige\images\NGcrop" --img 1600 --name foodbox  --exist-ok
 
 python export 

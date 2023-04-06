@@ -9,36 +9,57 @@
 # Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
 path: X:\Lvran\2-label dataset\lvluo images
 train: # train images (relative to 'path')
-  - 0-V1\train\defect
-  - 0-V1\train\OK
+  - 69821\train dataset
+  - 69821\OK-train
+  - 69896\train dataset
 
+  - AFC-20\train dataset 
+  - AFC-30\train dataset
 
+  - 696392\train dataset
+  - 696392\OK-train
+  - 696392\underkill
+
+  - sige\train dataset
+  - sige\OK-train
+  - sige\overkill
+  - sige\underkill
+
+  - 4-overkill\train
+  - 4-overkill2\train
+
+  - 5-dummy\train
+  - 5-dummy2\train
+  - 6-underkill\train
+  - 7-margin\train
+
+  - 0-V2\train\overkill
   - 0-V2\train\underkill
-  - 0-V2\train\overkill\1-images
-  - 0-V2\train\overkill\2-dirt
-  - 0-V2\train\overkill\3-guajiang
-  - 0-V2\train\overkill\4-yashang
-  - 0-V2\train\overkill\5-qita
 
-  - 0-V4\train\underkill
 val: # val images (relative to 'path')
-  - 0-V1\val\defect
-  - 0-V1\val\OK
+  - 69821\test dataset\val
+  - 69896\test dataset\val
 
-  - 0-V2\val\defect
+  - 696392\underkill
+  - 696392\test dataset\val
+
+  - sige\overkill
+  - sige\underkill
+  - sige\test dataset\val
+
+  - 4-overkill\val
+  - 4-overkill2\val
+  
+  - 5-dummy\val
+  - 5-dummy2\val
+  - 6-underkill\train
+  - 6-underkill\val
+  - 7-margin\val
   - 0-V2\val\overkill
-
   - 0-V2\train\underkill
-  - 0-V2\train\overkill\1-images
-  - 0-V2\train\overkill\2-dirt
-  - 0-V2\train\overkill\3-guajiang
-  - 0-V2\train\overkill\4-yashang
-  - 0-V2\train\overkill\5-qita
-
-  - 0-V4\train\underkill
-  - 0-V4\val\underkill
+  
 # Classes
-nc: 21 # number of classes
+nc: 14 # number of classes
 # names: ["dirt"] # class names
 names: [
     "dirt",
@@ -53,15 +74,8 @@ names: [
     "no hole",
     "doubleFilm",
     "dot",
-    "wire",
-    "bulge",
-    "hair",
-    "color film",
-    "burn mark",
-    "zhe hen",
-    "jiang kuai",
-    "que jiang",
-    "metal"
+    "metal",
+    "bulge"
   ] # class names
 
 
